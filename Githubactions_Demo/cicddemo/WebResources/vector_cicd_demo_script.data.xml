@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{aaacbe76-f44b-ee11-be6f-6045bdd78003}</WebResourceId>
+  <Name>vector_cicd_demo_script</Name>
+  <DisplayName>cicd_demo_script</DisplayName>
+  <Description>this demo script
+don't add to solution &amp; don't delete it</Description>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/vector_cicd_demo_scriptAAACBE76-F44B-EE11-BE6F-6045BDD78003</FileName>
+</WebResource>
