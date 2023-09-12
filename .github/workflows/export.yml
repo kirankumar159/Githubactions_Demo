@@ -58,8 +58,8 @@ jobs:
     - name: Commit changes
       run: |
             git fetch --all
-            git config --global user.email "muniarunkumar.pedavenkatagari@conduent.com"
-            git config --global user.name "ArunKumarPM21"
+            git config --global user.email "nallandula.kirankumar@conduent.com"
+            git config --global user.name "kirankumar159"
             git checkout main
             git add --all 
             git commit -m "Updates from the dev environment"
