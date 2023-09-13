@@ -1,4 +1,4 @@
-name: Deploy Umanaged Application
+name: import-solution
 run-name: Packing ${{ github.event.inputs.solution_name }} for ${{ github.event.inputs.environment_url }} environment
 on:
   workflow_dispatch:
