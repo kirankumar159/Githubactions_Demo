@@ -55,4 +55,4 @@ jobs:
         tenant-id: ${{secrets.TENANT_ID}}
         solution-file: ${{ github.event.repository.name }}/${{ env.solution_name }}_unmanaged.zip
         force-overwrite: true
-		publish-changes: true
+	publish-changes: true
