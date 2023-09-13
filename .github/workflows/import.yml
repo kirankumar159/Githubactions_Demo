@@ -1,5 +1,5 @@
 name: import-solution
-# import solution to test environment
+# import solution to test environment ny
 
 on:
   workflow_dispatch:
@@ -32,12 +32,12 @@ jobs:
 
     - name: pack solution 
      with:
-		solution-folder: ${{ github.event.repository.name}}/${{ env.solution_name }}
+	solution-folder: ${{ github.event.repository.name}}/${{ env.solution_name }}
         solution-file: ${{ github.event.repository.name}}/${{ env.solution_name }}_unmanaged.zip
         solution-type: 'Unmanaged'
        
 		
-	 - name: who-am-i action
+    - name: who-am-i action
       uses: microsoft/powerplatform-actions/who-am-i@v0
       with:
         environment-url: ${{env.ENVIRONMENT_URL}}
@@ -56,3 +56,6 @@ jobs:
         solution-file: ${{ github.event.repository.name }}/${{ env.solution_name }}_unmanaged.zip
         force-overwrite: true
 	publish-changes: true
+
+
+
