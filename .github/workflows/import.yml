@@ -14,7 +14,7 @@ on:
       environment_url:
         description: "http endpoint of your Dataverse environment"
         required: true
-        default: "https://nytolling-dev.crm.dynamics.com/"
+        default: "https://ctsgtolling-test.crm.dynamics.com/"
       #solution_source_folder:
        # description: "Location of the solution files"
         #requried: true
