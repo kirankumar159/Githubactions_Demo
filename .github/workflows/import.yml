@@ -1,53 +1,58 @@
 name: import-solution
-# run-name: Packing ${{ github.event.inputs.solution_name }} for ${{ github.event.inputs.environment_url }} environment
+# import solution to test environment
+
 on:
   workflow_dispatch:
     inputs:
-      solution_name:
-        description: "name of the Solution"
-        required: true
-        default: cicddemo
-      # environment_id:
-      #   description: "GUID of your Dataverse environment"
-      #   required: true
-      #   default: "GUID-OF-YOUR-ENVIRONMENT"
-      environment_url:
-        description: "http endpoint of your Dataverse environment"
-        required: true
-        default: "https://ctsgtolling-test.crm.dynamics.com/"
-      #solution_source_folder:
-       # description: "Location of the solution files"
-        #requried: true
-        #default: .
-      #solution_outbound_folder:
-       # description: "solution outbound folder"
-        #required: true
-        #default: out/stage
-jobs:
-    pack-umanaged-solution-import:
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v3
-        with:
-          lfs: true
-        env:
-          RUNNER_DEBUG: 1
-      
-      - name: Pack the solution
-        uses: microsoft/powerplatform-actions/pack-solution@v0
-        with:
-          solution-file: ${{ github.event.repository.name}}/${{ env.solution_name }}_unmanaged.zip
-          solution-folder: ${{ github.event.repository.name}}/${{ env.solution_name }}
-          solution-type: Unmanaged
+      # # Triggers the workflow on push pr pull request events but only for the "main" branch
+      Pull_request:
+        brances: [ "main" ]
+		
     
-      - name: Import solution as unmanaged to build env
-        uses: microsoft/powerplatform-actions/import-solution@v0
-        with:
-          environment-url: ${{env.ENVIRONMENT_URL}}
-          app-id: ${{secrets.CLIENT_ID}}
-          client-secret: ${{ secrets.CLIENT_SECRETID }}
-          tenant-id: ${{secrets.TENANT_ID}}
-          solution-file: ${{ github.event.repository.name}}/${{ env.solution_name }}_unmanaged.zip
-          force-overwrite: true
-          publish-changes: true
+env:
+#edit your values here
+  ENVIRONMENT_URL: 'https://ctsgtolling-test.crm.dynamics.com/'
+  Solution_name: cicddemo
   
+  
+permissions:
+  contents: write
+jobs:
+  import-from-test:
+    runs-on: ubuntu-latest
+    # or you can say runs-on: ubuntu-latest
+    env:
+      RUNNER_DEBUG: 1
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        lfs: true
+   
+
+    - name: pack solution 
+     with:
+		solution-folder: ${{ github.event.repository.name}}/${{ env.solution_name }}
+        solution-file: ${{ github.event.repository.name}}/${{ env.solution_name }}_unmanaged.zip
+        solution-type: 'Unmanaged'
+       
+		
+	 - name: who-am-i action
+      uses: microsoft/powerplatform-actions/who-am-i@v0
+      with:
+        environment-url: ${{env.ENVIRONMENT_URL}}
+        app-id: ${{env.CLIENT_ID}}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
+        tenant-id: ${{env.TENANT_ID}}
+
+
+    - name: import solution to test env
+      uses: microsoft/powerplatform-actions/export-solution@v0
+      with:
+        environment-url: ${{env.ENVIRONMENT_URL}}
+        app-id: ${{secrets.CLIENT_ID}}
+        client-secret: ${{ secrets.CLIENT_SECRETID }}
+        tenant-id: ${{secrets.TENANT_ID}}
+        solution-file: ${{ github.event.repository.name }}/${{ env.solution_name }}_unmanaged.zip
+        force-overwrite: true
+		publish-changes: true
