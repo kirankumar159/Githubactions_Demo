@@ -11,7 +11,7 @@ on:
 env:
 #edit your values here
   ENVIRONMENT_URL: 'https://nytolling-dev.crm.dynamics.com/'
-  solution_name: cicddemo
+  solution_name: crmdemo
 
 permissions:
   contents: write
