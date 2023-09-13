@@ -1,61 +1,95 @@
 name: import-solution
-# import solution to test environment
+
+# Import solution to TEST environment
+
+ 
 
 on:
+
   workflow_dispatch:
-    inputs:
-      # Triggers the workflow on push pr pull request events but only for the "main" branch
-Pull_request:
-   brances: [ "main" ]
-		
-    
+
+  # Triggers the workflow on push or pull request events but only for the "main" branch    
+
+  pull_request:
+
+    branches: [ "main" ]
+
+     
+
+ 
+
 env:
+
 #edit your values here
+
   ENVIRONMENT_URL: 'https://ctsgtolling-test.crm.dynamics.com/'
-  Solution_name: cicddemo
-  
-  
+
+  solution_name: cicddemo
+
+ 
+
 permissions:
+
   contents: write
+
 jobs:
-  import-from-test:
+
+  import-to-test:
+
     runs-on: ubuntu-latest
+
     # or you can say runs-on: ubuntu-latest
+
     env:
+
       RUNNER_DEBUG: 1
 
+ 
+
     steps:
+
     - uses: actions/checkout@v2
+
       with:
+
         lfs: true
-   
 
-    - name: pack solution 
-     with:
-	solution-folder: ${{ github.event.repository.name}}/${{ env.solution_name }}
-        solution-file: ${{ github.event.repository.name}}/${{ env.solution_name }}_unmanaged.zip
-        solution-type: 'Unmanaged'
+ 
+
        
-		
-    - name: who-am-i action
-      uses: microsoft/powerplatform-actions/who-am-i@v0
-      with:
-        environment-url: ${{env.ENVIRONMENT_URL}}
-        app-id: ${{env.CLIENT_ID}}
-        client-secret: ${{ secrets.PowerPlatformSPN }}
-        tenant-id: ${{env.TENANT_ID}}
 
+    - name: Pack solution
 
-    - name: import solution to test env
-      uses: microsoft/powerplatform-actions/export-solution@v0
+      uses: microsoft/powerplatform-actions/pack-solution@v0
+
       with:
-        environment-url: ${{env.ENVIRONMENT_URL}}
+
+        solution-folder: ${{ github.event.repository.name}}/${{ env.solution_name }}
+
+        solution-file: ${{ github.event.repository.name}}/${{ env.solution_name }}_unmanaged.zip
+
+        solution-type: Unmanaged
+
+ 
+
+    - name: Import solution to test env
+
+      uses: microsoft/powerplatform-actions/import-solution@v0
+
+      with:
+
+        environment-url: ${{ env.ENVIRONMENT_URL }}
+
         app-id: ${{secrets.CLIENT_ID}}
+
         client-secret: ${{ secrets.CLIENT_SECRETID }}
+
         tenant-id: ${{secrets.TENANT_ID}}
-        solution-file: ${{ github.event.repository.name }}/${{ env.solution_name }}_unmanaged.zip
+
+        solution-file: ${{ github.event.repository.name}}/${{ env.solution_name }}_unmanaged.zip
+
         force-overwrite: true
-	publish-changes: true
 
+        publish-changes: true
 
-
+       
