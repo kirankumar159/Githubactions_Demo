@@ -1,12 +1,12 @@
 name: import-solution
-# import solution to test environment ny
+# import solution to test environment
 
 on:
   workflow_dispatch:
     inputs:
-      # # Triggers the workflow on push pr pull request events but only for the "main" branch
-      Pull_request:
-        brances: [ "main" ]
+      # Triggers the workflow on push pr pull request events but only for the "main" branch
+Pull_request:
+   brances: [ "main" ]
 		
     
 env:
