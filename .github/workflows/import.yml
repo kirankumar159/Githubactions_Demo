@@ -11,7 +11,7 @@ on:
 env:
 #edit your values here
   ENVIRONMENT_URL: 'https://ctsgtolling-test.crm.dynamics.com/'
-  solution_name: crmdemo
+  solution_name: crmtest
 
 permissions:
   contents: write
