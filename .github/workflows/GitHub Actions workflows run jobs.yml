@@ -1,0 +1,14 @@
+name: Sequential Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  export-solution.yml
+    runs-on: ubuntu-latest
+
+   import-solution.yml
+    runs-on: ubuntu-latest
+    needs: export-solution.yml
