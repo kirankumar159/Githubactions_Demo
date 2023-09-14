@@ -1,5 +1,5 @@
 name: export-solution
-# Export solution from DEV environment ny tolling
+# Export solution from DEV environment
 
 on:
   workflow_dispatch:
