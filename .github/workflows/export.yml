@@ -56,13 +56,13 @@ jobs:
         overwrite-files: true
         
     - name: Commit changes
-      run: |
-            git fetch --all
-            git config --global user.email "nallandula.kirankumar@conduent.com"
-            git config --global user.name "kirankumar159"
-            git checkout main
-            git add --all 
-            git commit -m "Updates from the dev environment"
-            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-            git push       
+      # run: |
+      #       git fetch --all
+      #       git config --global user.email "nallandula.kirankumar@conduent.com"
+      #       git config --global user.name "kirankumar159"
+      #       git checkout main
+      #       git add --all 
+      #       git commit -m "Updates from the dev environment"
+      #       git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+      #       git push       
             
