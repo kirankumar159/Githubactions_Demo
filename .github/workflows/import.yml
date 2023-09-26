@@ -10,8 +10,8 @@ on:
   
 env:
 #edit your values here
-  ENVIRONMENT_URL: 'https://ctsgtolling-test.crm.dynamics.com/'
-  solution_name: democrm
+  ENVIRONMENT_URL: 'https://nytolling-dmdev.crm.dynamics.com/'
+  solution_name: demo_crm_solution
 
 permissions:
   contents: write
