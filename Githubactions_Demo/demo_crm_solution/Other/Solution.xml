@@ -80,6 +80,7 @@
       </Addresses>
     </Publisher>
     <RootComponents>
+      <RootComponent type="61" schemaName="vector_samplefile" behavior="0" />
       <RootComponent type="61" schemaName="vector_test_solution" behavior="0" />
     </RootComponents>
     <MissingDependencies />

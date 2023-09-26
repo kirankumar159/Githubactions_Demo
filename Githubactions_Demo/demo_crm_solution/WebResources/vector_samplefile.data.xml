@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{938e0bfb-275c-ee11-be6f-6045bdd739a1}</WebResourceId>
+  <Name>vector_samplefile</Name>
+  <DisplayName>samplefile</DisplayName>
+  <Description>Don't delete, using demo purpose </Description>
+  <WebResourceType>3</WebResourceType>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/vector_samplefile938E0BFB-275C-EE11-BE6F-6045BDD739A1</FileName>
+</WebResource>
