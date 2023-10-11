@@ -1,0 +1,11 @@
+Sample demo file for test
+
+echo commit all changes
+git fetch --all
+git config --global user.email "Nallandula.Kirankumar@conduent.com"
+git config --global user.name "Kirankumar, Nallandula" 
+git checkout $(Build.SourceBranchName)    
+cd $(Build.SourcesDirectory)
+git add --all
+git commit -m $(SolutionName)-$(Build.BuildId)
+git -c http.extraheader="AUTHORIZATION: bearer $(System.AccessToken)" push
